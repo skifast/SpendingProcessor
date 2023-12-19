@@ -24,8 +24,7 @@ class Transaction_Dict():
         print("\n")
 
     def update_transaction_dict(self, transaction, transaction_dict):
-        transaction_name = self.strip_transaction_name(transaction.transaction_name)
-        if(transaction_name == "Name"):
+        if((transaction_name := self.strip_transaction_name(transaction.transaction_name)) == "Name"):
             return
         titles = self.web_search_transaction(transaction_name)
         self.write_titles_to_file(titles)
@@ -47,8 +46,7 @@ class Transaction_Dict():
         
         while i < end_transaction_index:
             transaction = transactions[i] 
-            transaction_name = self.strip_transaction_name(transaction.transaction_name)
-            if(transaction_name == "Name"):
+            if((transaction_name := self.strip_transaction_name(transaction.transaction_name)) == "Name"):
                 return
             titles = self.web_search_transaction(transaction_name)
             self.write_titles_to_file(titles)
